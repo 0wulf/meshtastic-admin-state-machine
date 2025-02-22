@@ -32,9 +32,9 @@ Where:
 
 The state machine operates based on conditions that occur (or do not occur) at each step. The states and conditions are as follows:
 
-1. $q\_{\text{getConfig}}$: The condition here is to check if the current configuration matches the desired one. If it does, the process ends; if not, the machine moves to the next state.
+1. $q\_{\text{getConfig}}$: The condition here is if getting the remote configuration succeeds or not. If the machine is able to read the remote configuration it transitions with $true$, else it trantisions with $false$
 
-2. $q\_{\text{checkConfig}}$: In this state, the machine checks whether the configuration was successfully applied. If the configuration is correct, it transitions to the final state, $q_f$. If not, it moves to the **setConfig** state to reapply the changes.
+2. $q\_{\text{checkConfig}}$: In this state, the machine checks whether the desired configuration and the retreived configuration match. If the configuration is correct, it transitions to the final state, $q_f$. If not, it moves to the **setConfig** state to reapply the changes.
 
 3. $q\_{\text{setConfig}}$: This state deals with sending the configuration change request. The machine waits for an implicit acknowledgment (ACK) to confirm the change has been attempted. If the ACK is received, it transitions back to **checkConfig**. If no ACK is received, it stays in **setConfig** and retries the request.
 
