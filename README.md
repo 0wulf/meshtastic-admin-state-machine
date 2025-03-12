@@ -25,7 +25,7 @@ Where:
   - $\ \delta(q_{\text{setConfig}}, \text{false}) = q_{\text{setConfig}} \$
 - $F = {q_f}$ is the set of final states.
 
-![imagen](https://github.com/user-attachments/assets/1be98e19-dd8d-4a67-9eba-f893bd978220)
+![imagen](https://github.com/user-attachments/assets/7f3be844-acfd-4a83-bff9-c971b2110eef)
 
 
 ### How the State Machine Works
