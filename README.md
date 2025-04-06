@@ -36,7 +36,7 @@ The state machine operates based on conditions that occur (or do not occur) at e
 
 2. $q\_{\text{checkConfig}}$: In this state, the machine checks whether the desired configuration and the retreived configuration match. If the configuration is correct, it transitions to the final state, $q_f$. If not, it moves to the **setConfig** state to reapply the changes.
 
-3. $q\_{\text{setConfig}}$: This state deals with sending the configuration change request. The machine waits for an implicit acknowledgment (ACK) to confirm the change has been attempted. If the ACK is received, it transitions back to **checkConfig**. If no ACK is received, it stays in **setConfig** and retries the request.
+3. $q\_{\text{setConfig}}$: This state deals with sending the configuration change request. The machine waits for an implicit acknowledgment (ACK) to confirm the change has been attempted. If the ACK is received, it transitions back to **getConfig**. If no ACK is received, it stays in **setConfig** and retries the request.
 
 ### Protocol Workflow
 
@@ -46,7 +46,7 @@ The protocol follows a simple flow:
 2. **Check for configuration differences**: If the current configuration matches the desired settings, the program exits.
 3. **Request configuration changes**: If changes are needed, the node is asked to update its configuration.
 4. **Verify the change**: After the update request, the machine checks whether the configuration has been successfully applied.
-5. **Retry if needed**: If the change was not successfully applied, the script reverts to the previous step and requests the configuration change again.
+5. **Retry if needed**: If the change was not successfully applied, the script requests the configuration change again.
 6. **End the process**: Once the configuration change is confirmed, the process ends.
 
 This state machine provides a robust mechanism for ensuring that configuration changes are successfully applied, overcoming the challenges posed by the presence of implicit ACKs.
