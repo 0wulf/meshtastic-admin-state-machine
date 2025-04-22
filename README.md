@@ -65,4 +65,4 @@ Then, modify the configuration in `main.py` to match your desired settings. Fina
 bin/python main.py
 ```
 
-Be careful when using this script, as it will attempt to change the configuration of the node. Make sure you understand the implications of the changes you are making and remember that some firmware versions are flawed and in some cases you may be resetting the node's radio band configuration.
+> Be careful when using this script, as it will attempt to change the configuration of the node. Make sure you understand the implications of the changes you are making and remember that some firmware versions can't handle badly crafted payloads and in some cases you may be resetting the node's radio band configuration (at least, it happened to me twice while changing other LoRa configurations).
