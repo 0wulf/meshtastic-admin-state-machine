@@ -1,6 +1,6 @@
 # Meshtastic Admin State Machine - Efficiently Manage Node Configurations via the Admin Module
 
-Starting from version 2.5 of the Meshtastic firmware, nodes can be remotely managed via a secure admin module. Prior to this release, configuration changes were made through an insecure admin channel, which had several flaws.
+Starting from version 2.5 of the Meshtastic firmware, nodes can be remotely managed via a secure admin module. Prior to this release, configuration changes were made through an insecure admin channel.
 
 While the new admin module improves security, it introduces certain challenges. For example, not all tasks can be fully acknowledged. Consider the action of changing the device configuration: when this operation is performed, the python API typically receives an **Implicit ACK**, indicating that the packet has been rebroadcast by another node and entered the mesh. However, this does not guarantee secure delivery. The packet may be lost if its time-to-live (TTL or remaining hops) expires, or if the channel is congested.
 
